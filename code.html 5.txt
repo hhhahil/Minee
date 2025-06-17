@@ -4,6 +4,8 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Mel, Please Forgive Me</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 <style>
   /* CSS Variables for pink romantic theme */
   :root {
@@ -75,13 +77,10 @@
 
   /* Buttons */
   .btn-group {
-    position: relative;
-    width: 100%;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    min-height: 120px;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+    justify-content: center;
   }
   button {
     cursor: pointer;
@@ -105,9 +104,6 @@
     background: var(--pink-dark);
     color: white;
     box-shadow: 0 4px 10px rgba(176, 0, 58, 0.6);
-    position: relative;
-    z-index: 2;
-    width: 160px;
   }
   button.yes-btn:hover {
     background: #d80044;
@@ -118,12 +114,10 @@
     background: var(--pink-light);
     color: var(--pink-dark);
     box-shadow: 0 4px 10px rgba(255, 195, 204, 0.9);
-    position: fixed;
-    width: 160px;
-    padding: 0.8rem 2.2rem;
-    user-select: none;
-    z-index: 999;
-    border-radius: 1rem;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     transition: none;
   }
 
@@ -136,7 +130,7 @@
     height: 100vh;
     width: 100vw;
     overflow: visible;
-    z-index: 10000;
+    z-index: 9999;
   }
 
   .heart {
@@ -184,7 +178,7 @@
     }
   }
 
-  /* Page 4 pig container */
+  /* Page 5 pig container */
   .pig-area {
     position: relative;
     width: 100%;
@@ -332,26 +326,18 @@
     100% {transform: translateY(0) scale(1);}
   }
 
-  /* Page 3 thank you text */
-  #page3 .thank-you-text {
+  /* Page 4 thank you text */
+  #page4 .thank-you-text {
     font-weight: 700;
     font-size: 2rem;
     margin-bottom: 1.5rem;
     color: var(--pink-dark);
   }
-  #page3 .sub-text {
+  #page4 .sub-text {
     font-size: 1.2rem;
     font-weight: 500;
     color: var(--pink-medium);
     margin-bottom: 2rem;
-  }
-
-  /* Page 4 cochon text */
-  #page4 p.sub-text {
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: var(--pink-dark);
-    margin-top: 1rem;
   }
 
   /* Responsive */
@@ -380,21 +366,31 @@
 </head>
 <body>
 <div id="heart-trail"></div>
+
 <div id="app" aria-live="polite">
   <!-- Page 1: Heartfelt message -->
   <section id="page1" class="page active" role="main" aria-label="Heartfelt message page">
-    <h1>Hey baby 😘</h1>
-    <p class="subtitle">Mel, you are the one that I feel comfortable talking to. You are a sweet girl, funny, cantik, and even the moments we talk without me knowing how exactly you look like. Turns out I talk to a pretty girl, can't believe it.</p>
-    <button class="yes-btn" type="button" id="toPage2Btn" aria-label="Go to next page: Forgiveness request">
+    <h1>Hey baby ð</h1>
+    <p class="subtitle">Mel, tu es la personne avec qui je me sens le plus Ã  lâaise pour parler. Tu es douce, drÃ´le et belle, mÃªme Ã  lâÃ©poque oÃ¹ on parlait sans que je sache vraiment Ã  quoi tu ressemblais. Et maintenant que je saisâ¦ je nâen reviens toujours pas Ã  quel point tu es jolie.</p>
+    <button class="yes-btn" type="button" id="toPage2Btn" aria-label="Go to next page: Dreaming about each other">
       Next
     </button>
   </section>
 
-  <!-- Page 2: Forgiveness request -->
-  <section id="page2" class="page" role="main" aria-label="Forgiveness request page">
+  <!-- Page 2: Dreaming about each other -->
+  <section id="page2" class="page" role="main" aria-label="Dreaming about each other page">
+    <h1>Donc, letâs dream about each other again?</h1>
+    <p class="subtitle">Letâs share our days again, our future, our memories, our random thoughts, random reels.</p>
+    <button class="yes-btn" type="button" id="toPage3Btn" aria-label="Go to next page: Forgiveness request">
+      Next
+    </button>
+  </section>
+
+  <!-- Page 3: Forgiveness request -->
+  <section id="page3" class="page" role="main" aria-label="Forgiveness request page">
     <h1>Mel, please forgive me</h1>
     <p class="subtitle">Will you forgive me?</p>
-    <div class="btn-group">
+    <div class="btn-group" style="position: relative; min-height: 64px; width:100%;">
       <button class="yes-btn" type="button" id="yesBtn" aria-label="Yes I will forgive you">
         Yes I will
       </button>
@@ -404,24 +400,22 @@
     </div>
   </section>
 
-  <!-- Page 3: Thank you -->
-  <section id="page3" class="page" role="main" aria-label="Thank you page">
+  <!-- Page 4: Thank you -->
+  <section id="page4" class="page" role="main" aria-label="Thank you page">
     <h1>Thank You!</h1>
-    <p class="thank-you-text">You are so sweet ❤️</p>
-    <p class="sub-text">Thank you for your forgiveness, Mel!</p>
+    <p class="thank-you-text">You are so sweet, beautiful â¤ï¸</p>
+    <p class="sub-text">I know how much I hurt you, and I am now aware that I did a mistake. I donât want that to make us apart. Since you have forgiven me, I would not hurt you again. I will try to communicate better, treat you better. Okay?</p>
     <div class="floating-hearts" aria-hidden="true"></div>
-    <button class="yes-btn" type="button" id="toPage4Btn" aria-label="Go to next page: Cochon pigs">
+    <button class="yes-btn" type="button" id="toPage5Btn" aria-label="Go to next page: Happy pigs">
       Next
     </button>
   </section>
 
-  <!-- Page 4: Cute pigs animation -->
-  <section id="page4" class="page" role="main" aria-label="Cochon pigs animation page">
-    <p class="sub-text" style="font-weight:700; font-size:1.8rem; margin-bottom:1rem; color: var(--pink-dark);">
-      Can't wait to talk to you again. I miss you so much
-    </p>
+  <!-- Page 5: Cute pigs animation -->
+  <section id="page5" class="page" role="main" aria-label="Happy pigs animation page">
+    <h1>Can't wait to talk to you again. I miss you so much!</h1>
     <div class="pig-area" aria-hidden="true">
-      <div class="pig walking" style="left: 20px;">
+      <div class="pig walking" style="left: 20px;" aria-hidden="true">
         <div class="pig-body"></div>
         <div class="pig-ear left"></div>
         <div class="pig-ear right"></div>
@@ -432,7 +426,7 @@
           <div class="pig-snout-nostril right"></div>
         </div>
       </div>
-      <div class="pig jumping" style="left: 180px;">
+      <div class="pig jumping" style="left: 180px;" aria-hidden="true">
         <div class="pig-body"></div>
         <div class="pig-ear left"></div>
         <div class="pig-ear right"></div>
@@ -447,22 +441,23 @@
       <div class="love-icon right"></div>
     </div>
     <p class="sub-text">I am the best cochon in the world!</p>
+    <p class="sub-text">Stay with me, talk to me, please</p>
   </section>
 </div>
 
 <script>
   // Heart trail effect
   const heartTrail = document.getElementById('heart-trail');
-  const maxHearts = 20;
 
   function createHeart(x, y) {
     const heart = document.createElement('div');
     heart.className = 'heart';
     heart.style.left = x + 'px';
     heart.style.top = y + 'px';
-    heart.textContent = '❤️';
+    heart.textContent = 'â¤ï¸';
     heartTrail.appendChild(heart);
 
+    // Animate and remove after animation
     setTimeout(() => {
       heart.remove();
     }, 900);
@@ -480,81 +475,5 @@
     const page = document.getElementById(id);
     if (page) {
       page.classList.add('active');
-      page.querySelector('button, h1, p')?.focus?.();
-    }
-  }
-
-  // Page 1 button -> go to page 2
-  const toPage2Btn = document.getElementById('toPage2Btn');
-  toPage2Btn.addEventListener('click', () => {
-    showPage('page2');
-    moveNoButtonRandomly();
-  });
-
-  // Page 2 - "No" button random movement logic
-  const noBtn = document.getElementById('noBtn');
-  const yesBtn = document.getElementById('yesBtn');
-
-  function moveNoButtonRandomly() {
-    const btnRect = noBtn.getBoundingClientRect();
-    const viewportWidth = window.innerWidth;
-    const viewportHeight = window.innerHeight;
-
-    // Calculate max left and top to prevent clipping
-    const maxLeft = viewportWidth - btnRect.width - 20;
-    const maxTop = viewportHeight - btnRect.height - 20;
-
-    // Generate random left and top inside viewport with offsets
-    const left = Math.random() * maxLeft + 10;
-    const top = Math.random() * maxTop + 10;
-
-    noBtn.style.left = left + 'px';
-    noBtn.style.top = top + 'px';
-  }
-
-  noBtn.style.position = 'fixed'; // ensure fixed positioning
-
-  moveNoButtonRandomly();
-
-  noBtn.addEventListener('mouseenter', () => {
-    moveNoButtonRandomly();
-  });
-  noBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    moveNoButtonRandomly();
-  });
-
-  // Yes button click -> go to page 3
-  yesBtn.addEventListener('click', () => {
-    showPage('page3');
-    initFloatingHearts();
-  });
-
-  // Page 3 button -> next page 4
-  const toPage4Btn = document.getElementById('toPage4Btn');
-  toPage4Btn.addEventListener('click', () => {
-    showPage('page4');
-  });
-
-  // Page 3 floating hearts
-  const floatingHeartsContainer = document.querySelector('#page3 .floating-hearts');
-  let floatingHearts = [];
-  function initFloatingHearts() {
-    if (floatingHearts.length) return; // Only init once
-
-    const heartCount = 30;
-    for(let i=0; i < heartCount; i++) {
-      const heart = document.createElement('div');
-      heart.className = 'floating-heart';
-      heart.style.left = Math.random() * 100 + 'vw';
-      const duration = 4 + Math.random() * 4;
-      heart.style.animationDuration = duration + 's';
-      heart.style.animationDelay = -Math.random() * duration + 's';
-      floatingHeartsContainer.appendChild(heart);
-      floatingHearts.push(heart);
-    }
-  }
-</script>
-</body>
-</html>
-
+      // Accessibility focus management
+      const focus
